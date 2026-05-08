@@ -208,3 +208,13 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+# Add this to .gitignore
+ai-models/
+*.h5
+*.pt
+*.pkl
+*.joblib
+*.pth
+
+echo "*.zip" >> .gitignore
