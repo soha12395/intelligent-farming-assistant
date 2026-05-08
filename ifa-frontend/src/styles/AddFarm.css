@@ -1,0 +1,82 @@
+.addfarm-container {
+  min-height: 100vh;
+  background: #f0f4f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.addfarm-box {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.addfarm-box h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.addfarm-box select,
+.addfarm-box input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.addfarm-box button {
+  width: 100%;
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.addfarm-box button:hover {
+  background-color: #1b5e20;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .addfarm-box {
+    padding: 25px;
+  }
+}
+.delete-btn {
+  width: 100%;
+  background-color: rgba(250, 19, 19, 0.952) !important;
+  color: white !important;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #b71c1c !important;
+}

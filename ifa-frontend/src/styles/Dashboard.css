@@ -1,0 +1,148 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f0f4f0;
+}
+
+.navbar {
+  background-color: #2e7d32;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  background: white;
+  color: #2e7d32;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background: #f1f8e9;
+}
+
+.dashboard-content {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+.welcome-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.welcome-card h2 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+.farm-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.farm-card h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.farm-info p {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.farm-info p span {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.no-farm {
+  text-align: center;
+  color: #666;
+  padding: 20px 0;
+}
+
+.no-farm a {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.action-card:hover {
+  background: #f1f8e9;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+  }
+
+  .action-card {
+    min-width: 100%;
+  }
+
+  .dashboard-content {
+    margin: 15px auto;
+  }
+}
