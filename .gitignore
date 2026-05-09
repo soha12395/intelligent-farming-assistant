@@ -210,11 +210,13 @@ desktop.ini
 *.swo
 
 # Add this to .gitignore
-ai-models/
-*.h5
-*.pt
-*.pkl
-*.joblib
-*.pth
-
+# ai-models/
+# *.h5
+# *.pt
+# *.pkl
+# *.joblib
+# *.pth
+ai-models/models/*.h5
+ai-models/models/*.pt
+ai-models/models/*.pkl
 echo "*.zip" >> .gitignore
