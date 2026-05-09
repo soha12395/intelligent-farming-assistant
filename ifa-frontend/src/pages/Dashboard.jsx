@@ -17,10 +17,10 @@ function Dashboard() {
     });
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token');
+  //   window.location.href = '/login';
+  // };
 
   return (
     <div className="dashboard-container">
