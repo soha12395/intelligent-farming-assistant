@@ -17,12 +17,13 @@ def disease_detection():
 
         image = request.files['image']
 
-        # Import and run prediction
         from disease_detection.predict import predict_disease
         result = predict_disease(image)
         return jsonify(result)
 
     except Exception as e:
+        import traceback
+        print("FULL ERROR:", traceback.format_exc())
         return jsonify({'error': str(e)}), 500
 
 @app.route('/predict/crop', methods=['POST'])
