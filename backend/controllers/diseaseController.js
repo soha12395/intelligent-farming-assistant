@@ -1,65 +1,96 @@
 const multer = require("multer");
-const { exec } = require("child_process");
 const path = require("path");
+const fs = require("fs");
+const axios = require("axios");
+const FormData = require("form-data");
 const Disease = require("../models/Disease");
 const FarmProfile = require("../models/FarmProfile");
-const fs = require("fs");
 
 const uploadDir = path.join(__dirname, "../uploads");
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, "../uploads");
-    cb(null, uploadPath);
+    cb(null, uploadDir);
   },
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
 
 const upload = multer({ storage });
 
-const detectDisease = (req, res) => {
-  const imagePath = req.file.path;
-  const scriptPath = path.join(
-    __dirname,
-    "../../ai-models/disease-detection/predict.py",
-  );
-  exec(
-    `py -3.11 "${scriptPath}" "${imagePath}" "${req.body.plant}"`,
-    (err, stdout, stderr) => {
-      if (err) return res.json({ Error: "Error running AI model" });
+const detectDisease = async (req, res) => {
+  try {
+    const imagePath = req.file.path;
 
-      const prediction = JSON.parse(stdout);
-      const disease_key = prediction.label;
-      const selectedPlant = req.body.plant;
+    // Send image to ML service via HTTP
+    const formData = new FormData();
+    formData.append("image", fs.createReadStream(imagePath));
 
-      const score = prediction.score;
+    const mlResponse = await axios.post(
+      `${process.env.ML_SERVICE_URL}/predict/disease`,
+      formData,
+      { headers: formData.getHeaders() }
+    );
 
-      Disease.findByKey(disease_key, (err, data) => {
-        if (err || data.length === 0)
-          return res.json({ Error: "Disease not found in database" });
+    const { disease_name, confidence_score, treatment } = mlResponse.data;
 
-        const disease = data[0];
+    // Look up disease in database
+    Disease.findByKey(disease_name, (err, data) => {
+      if (err || !data || data.length === 0) {
+        // Disease not in DB, return ML result directly
+        return res.json({
+          Status: "Success",
+          result: {
+            disease_name,
+            confidence_score,
+            treatment,
+          },
+        });
+      }
 
-        FarmProfile.findByFarmerId(req.farmer_id, (err, farmData) => {
-          if (err || farmData.length === 0)
-            return res.json({ Error: "Farm profile not found" });
+      const disease = data[0];
 
-          const detection = {
-            profile_id: farmData[0].profile_id,
-            disease_id: disease.disease_id,
-            image_path: imagePath,
-            confidence: score > 0.7 ? "High" : score > 0.4 ? "Medium" : "Low",
-          };
+      FarmProfile.findByFarmerId(req.farmer_id, (err, farmData) => {
+        if (err || !farmData || farmData.length === 0) {
+          return res.json({
+            Status: "Success",
+            result: {
+              disease_name,
+              confidence_score,
+              treatment: disease.treatment || treatment,
+            },
+          });
+        }
 
-          Disease.saveDetection(detection, (err) => {
-            if (err) return res.json({ Error: "Error saving detection" });
-            return res.json({ Status: "Success", result: disease });
+        const detection = {
+          profile_id: farmData[0].profile_id,
+          disease_id: disease.disease_id,
+          image_path: imagePath,
+          confidence:
+            confidence_score > 70
+              ? "High"
+              : confidence_score > 40
+              ? "Medium"
+              : "Low",
+        };
+
+        Disease.saveDetection(detection, (err) => {
+          if (err) console.error("Error saving detection:", err);
+          return res.json({
+            Status: "Success",
+            result: {
+              disease_name,
+              confidence_score,
+              treatment: disease.treatment || treatment,
+            },
           });
         });
       });
-    },
-  );
+    });
+  } catch (error) {
+    console.error("Disease detection error:", error.message);
+    return res.json({ Error: "Error running AI model: " + error.message });
+  }
 };
 
 const getDetections = (req, res) => {
