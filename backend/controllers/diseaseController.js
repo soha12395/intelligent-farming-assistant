@@ -25,7 +25,7 @@ const detectDisease = async (req, res) => {
     const imageBuffer = fs.readFileSync(imagePath);
 
     const mlResponse = await axios.post(
-      'https://api-inference.huggingface.co/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification',
+      'https://router.huggingface.co/hf-inference/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification',
       imageBuffer,
       {
         headers: {
