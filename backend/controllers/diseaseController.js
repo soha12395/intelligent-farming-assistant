@@ -44,6 +44,8 @@ const detectDisease = async (req, res) => {
 
     const topPrediction   = predictions[0];
     const disease_key     = topPrediction.label;
+    console.log('disease_key from HF:', disease_key);
+
     const disease_name    = disease_key.replace('___', ' - ').replace(/_/g, ' ');
     const confidence_score = Math.round(topPrediction.score * 100);
 
