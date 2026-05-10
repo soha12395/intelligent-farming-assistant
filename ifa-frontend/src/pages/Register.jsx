@@ -19,9 +19,9 @@ function Register() {
   e.preventDefault();
   try {
     const res = await api.post('/auth/register', formData);
-    if (res.data.Status === 'Verify') {
-      localStorage.setItem('pendingEmail', res.data.email);
-      window.location.href = '/verify';
+    if (res.data.Status === 'Success') {
+      alert('Registration successful! Please login.');
+      window.location.href = '/login';
     } else {
       setError(res.data.Error);
     }
