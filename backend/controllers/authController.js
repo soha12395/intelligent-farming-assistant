@@ -13,6 +13,8 @@ const register = (req, res) => {
 
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) return res.json({ Error: "Error hashing password" });
+        const code = Math.floor(100000 + Math.random() * 900000).toString(); // ← make sure this line is there
+
       const userData = {
         full_name,
         email,
