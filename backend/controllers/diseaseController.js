@@ -23,17 +23,32 @@ const detectDisease = async (req, res) => {
     const imagePath = req.file.path;
 
     // Send image to ML service via HTTP
-    const formData = new FormData();
-    formData.append("image", fs.createReadStream(imagePath));
+  // NEW — calls Hugging Face API directly
+const imageBuffer = fs.readFileSync(imagePath);
 
-    const mlResponse = await axios.post(
-      `${process.env.ML_SERVICE_URL}/predict/disease`,
-      formData,
-      { headers: formData.getHeaders() }
-    );
+const mlResponse = await axios.post(
+  'https://api-inference.huggingface.co/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification',
+  imageBuffer,
+  {
+    headers: {
+      'Authorization': `Bearer ${process.env.HF_API_KEY}`,
+      'Content-Type': 'application/octet-stream',
+    }
+  }
+);
 
-    const { disease_name, confidence_score, treatment } = mlResponse.data;
+// HF returns array: [{ label: "Tomato___Early_blight", score: 0.91 }, ...]
+const predictions = mlResponse.data;
 
+// Handle cold start
+if (!Array.isArray(predictions)) {
+  return res.json({ Error: 'Model is warming up, please try again in 20 seconds' });
+}
+
+const topPrediction = predictions[0];
+const disease_key   = topPrediction.label;
+const disease_name  = disease_key.replace('___', ' - ').replace(/_/g, ' ');
+const confidence_score = Math.round(topPrediction.score * 100);
     // Look up disease in database
     Disease.findByKey(disease_name, (err, data) => {
       if (err || !data || data.length === 0) {
