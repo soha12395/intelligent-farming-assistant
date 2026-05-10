@@ -21,7 +21,7 @@ const register = (req, res) => {
         phone,
         password_hash: hash,
         verification_code: code,
-        is_verified: 0
+        is_verified: 1
       };
 
       User.create(userData, (err, result) => {
