@@ -27,12 +27,12 @@ function Dashboard() {
       <Navbar />
       <div className="dashboard-content">
         <div className="welcome-card">
-          <h2>Welcome back, {farmer ? farmer.full_name : '...'} 👋</h2>
+          <h2>Welcome back, {farmer ? farmer.full_name : '...'} </h2>
           <p>Manage your farm and get AI-powered recommendations</p>
         </div>
 
         <div className="farm-card">
-          <h3>🌾 My Farm Profile</h3>
+          <h3> My Farm Profile</h3>
           {farm ? (
             <div className="farm-info">
               <p><span>Region:</span> {farm.region}</p>
@@ -48,11 +48,11 @@ function Dashboard() {
         </div>
 
         <div className="quick-actions">
-          <a href="/disease" className="action-card">🔬 Detect Disease</a>
-          <a href="/recommendation" className="action-card">🌾 Get Crop Recommendation</a>
-          <a href="/farm/add" className="action-card">✏️ Edit Farm Profile</a>
-          <a href="/disease/history" className="action-card">📋 Detection History</a>
-          <a href="/crop/history" className="action-card">📋 Recommendation History</a>
+          <a href="/disease" className="action-card"> Detect Disease</a>
+          <a href="/recommendation" className="action-card"> Get Crop Recommendation</a>
+          <a href="/farm/add" className="action-card"> Edit Farm Profile</a>
+          <a href="/disease/history" className="action-card"> Detection History</a>
+          <a href="/crop/history" className="action-card"> Recommendation History</a>
         </div>
       </div>
       <Footer />

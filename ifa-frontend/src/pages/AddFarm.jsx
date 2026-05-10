@@ -58,7 +58,7 @@ function AddFarm() {
   return (
     <div className="addfarm-container">
       <div className="addfarm-box">
-        <h2>{isEdit ? "✏️ Edit Farm Profile" : "🌾 Add Farm Profile"}</h2>
+        <h2>{isEdit ? " Edit Farm Profile" : " Add Farm Profile"}</h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
           <select

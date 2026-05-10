@@ -29,7 +29,7 @@ function ResetPassword() {
   return (
     <div className="verify-container">
       <div className="verify-box">
-        <h2>🔑 Reset Password</h2>
+        <h2> Reset Password</h2>
         <p>Enter the code sent to <strong>{email}</strong> and your new password</p>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>

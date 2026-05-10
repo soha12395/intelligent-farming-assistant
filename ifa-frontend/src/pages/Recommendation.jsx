@@ -29,7 +29,7 @@ function Recommendation() {
       <div className="recommendation-content">
    
         <div className="recommendation-box">
-          <h2>🌾 Crop Recommendation</h2>
+          <h2> Crop Recommendation</h2>
           {error && <p className="error">{error}</p>}
           <form onSubmit={handleSubmit}>
             <select onChange={e => setSeason(e.target.value)} required>

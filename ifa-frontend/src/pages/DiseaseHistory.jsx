@@ -25,7 +25,7 @@ function DiseaseHistory() {
     <div className="history-container">
       <Navbar />
       <div className="history-content">
-        <h2>🔬 Disease Detection History</h2>
+        <h2> Disease Detection History</h2>
         {error && <p className="error">{error}</p>}
         {history.length === 0 ? (
           <div className="empty-card">

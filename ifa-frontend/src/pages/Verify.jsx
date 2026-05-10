@@ -25,7 +25,7 @@ function Verify() {
   return (
     <div className="verify-container">
       <div className="verify-box">
-        <h2>📧 Verify Your Email</h2>
+        <h2> Verify Your Email</h2>
         <p>We sent a 6-digit code to <strong>{email}</strong></p>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleVerify}>

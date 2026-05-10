@@ -33,7 +33,7 @@ function Register() {
   return (
     <div className="register-container">
       <div className="register-box">
-        <h2>Create Account 🌱</h2>
+        <h2>Create Account </h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleRegister}>
           <input
