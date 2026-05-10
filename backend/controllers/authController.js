@@ -7,38 +7,28 @@ const register = (req, res) => {
   const { full_name, email, phone, password } = req.body;
 
   User.findByEmail(email, (err, data) => {
-    if (err) return res.json({ Error: 'Server error' });  // ← ADD THIS
+    if (err) return res.json({ Error: 'Server error' });
     if (data && data.length > 0) return res.json({ Error: 'Email already exists' });
 
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) return res.json({ Error: 'Error hashing password' });
-
-      const code = Math.floor(100000 + Math.random() * 900000).toString();
 
       const userData = {
         full_name,
         email,
         phone,
         password_hash: hash,
-        verification_code: code,
-        is_verified: 1
+        verification_code: null,
+        is_verified: 1  // ← auto verified
       };
 
       User.create(userData, (err, result) => {
         if (err) return res.json({ Error: 'Error creating account' });
-
-        sendVerificationCode(email, code)
-          .then(() => res.json({ Status: 'Verify', email }))
-          .catch((e) => {                                  // ← CHANGE THIS
-            console.error('Email error:', e.message);
-            User.deleteByEmail(email, () => {});
-            res.json({ Error: 'Error sending verification email' });
-          });
+        return res.json({ Status: 'Success' });  // ← no verification needed
       });
     });
   });
 };
-
 const login = (req, res) => {
   User.findByEmail(req.body.email, (err, data) => {
     if (err) return res.json({ Error: 'Login error' });
