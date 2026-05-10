@@ -7,6 +7,7 @@ const register = (req, res) => {
   const { full_name, email, phone, password } = req.body;
 
   User.findByEmail(email, (err, data) => {
+    if (err) return res.json({ Error: 'Server error' });  // ← ADD THIS
     if (data && data.length > 0) return res.json({ Error: 'Email already exists' });
 
     bcrypt.hash(password, 10, (err, hash) => {
@@ -28,7 +29,10 @@ const register = (req, res) => {
 
         sendVerificationCode(email, code)
           .then(() => res.json({ Status: 'Verify', email }))
-          .catch(() => res.json({ Error: 'Error sending verification email' }));
+          .catch((e) => {                                  // ← CHANGE THIS
+            console.error('Email error:', e.message);
+            res.json({ Error: 'Error sending verification email' });
+          });
       });
     });
   });
