@@ -1,3 +1,69 @@
+const label_map = {
+  // Tomato
+  'Tomato with Target Spot': 'Tomato___Target_Spot',
+  'Tomato with Tomato Yellow Leaf Curl Virus': 'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
+  'Tomato with Tomato Mosaic Virus': 'Tomato___Tomato_mosaic_virus',
+  'Tomato with Bacterial Spot': 'Tomato___Bacterial_spot',
+  'Tomato with Early Blight': 'Tomato___Early_blight',
+  'Tomato with Late Blight': 'Tomato___Late_blight',
+  'Tomato with Leaf Mold': 'Tomato___Leaf_Mold',
+  'Tomato with Septoria Leaf Spot': 'Tomato___Septoria_leaf_spot',
+  'Tomato with Spider Mites': 'Tomato___Spider_mites Two-spotted_spider_mite',
+  'Tomato healthy': 'Tomato___healthy',
+  // Potato
+  'Potato with Early Blight': 'Potato___Early_blight',
+  'Potato with Late Blight': 'Potato___Late_blight',
+  'Potato healthy': 'Potato___healthy',
+  // Pepper
+  'Pepper, bell with Bacterial Spot': 'Pepper,_bell___Bacterial_spot',
+  'Pepper, bell healthy': 'Pepper,_bell___healthy',
+  'Bell Pepper with Bacterial Spot': 'Pepper,_bell___Bacterial_spot',
+  'Healthy Bell Pepper Plant': 'Pepper,_bell___healthy',
+  // Corn
+  'Corn (Maize) with Cercospora Leaf Spot': 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot',
+  'Corn (Maize) with Common Rust': 'Corn_(maize)___Common_rust_',
+  'Corn (Maize) with Northern Leaf Blight': 'Corn_(maize)___Northern_Leaf_Blight',
+  'Corn (Maize) healthy': 'Corn_(maize)___healthy',
+  // Grape
+  'Grape with Black Rot': 'Grape___Black_rot',
+  'Grape with Esca': 'Grape___Esca_(Black_Measles)',
+  'Grape with Esca (Black Measles)': 'Grape___Esca_(Black_Measles)',
+  'Grape with Leaf Blight': 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
+  'Grape with Leaf Blight (Isariopsis Leaf Spot)': 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
+  'Grape healthy': 'Grape___healthy',
+  // Apple
+  'Apple with Apple Scab': 'Apple___Apple_scab',
+  'Apple with Black Rot': 'Apple___Black_rot',
+  'Apple with Cedar Apple Rust': 'Apple___Cedar_apple_rust',
+  'Apple healthy': 'Apple___healthy',
+  // Cherry
+  'Cherry with Powdery Mildew': 'Cherry_(including_sour)___Powdery_mildew',
+  'Cherry (including sour) with Powdery Mildew': 'Cherry_(including_sour)___Powdery_mildew',
+  'Cherry healthy': 'Cherry_(including_sour)___healthy',
+  // Peach
+  'Peach with Bacterial Spot': 'Peach___Bacterial_spot',
+  'Peach healthy': 'Peach___healthy',
+  // Strawberry
+  'Strawberry with Leaf Scorch': 'Strawberry___Leaf_scorch',
+  'Strawberry healthy': 'Strawberry___healthy',
+  // Raspberry
+  'Raspberry healthy': 'Raspberry___healthy',
+  // Healthy variants
+  'Healthy Potato Plant': 'Potato___healthy',
+  'Healthy Tomato Plant': 'Tomato___healthy',
+  'Healthy Corn Plant': 'Corn_(maize)___healthy',
+  'Healthy Grape Plant': 'Grape___healthy',
+  'Healthy Apple Plant': 'Apple___healthy',
+  'Healthy Cherry Plant': 'Cherry_(including_sour)___healthy',
+  'Healthy Peach Plant': 'Peach___healthy',
+  'Healthy Strawberry Plant': 'Strawberry___healthy',
+  'Healthy Raspberry Plant': 'Raspberry___healthy',
+  'Healthy Pepper Plant': 'Pepper,_bell___healthy',
+};
+
+
+
+
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -43,7 +109,7 @@ const detectDisease = async (req, res) => {
     }
 
     const topPrediction   = predictions[0];
-    const disease_key     = topPrediction.label;
+    const disease_key     = label_map[topPrediction.label] || topPrediction.label;
     console.log('disease_key from HF:', disease_key);
 
     const disease_name    = disease_key.replace('___', ' - ').replace(/_/g, ' ');
