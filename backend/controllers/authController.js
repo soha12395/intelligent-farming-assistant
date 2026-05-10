@@ -31,6 +31,7 @@ const register = (req, res) => {
           .then(() => res.json({ Status: 'Verify', email }))
           .catch((e) => {                                  // ← CHANGE THIS
             console.error('Email error:', e.message);
+            User.deleteByEmail(email, () => {});
             res.json({ Error: 'Error sending verification email' });
           });
       });

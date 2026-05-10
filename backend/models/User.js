@@ -22,6 +22,9 @@ const User = {
 
 saveResetCode: (email, code, cb) => {
   db.query('UPDATE farmer SET verification_code = ? WHERE email = ?', [code, email], cb);
+},
+deleteByEmail: (email, callback) => {
+    db.query('DELETE FROM farmer WHERE email = ?', [email], callback);
 }
 };
 
