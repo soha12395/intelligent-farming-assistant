@@ -104,16 +104,7 @@ const detectDisease = async (req, res) => {
     );
 
     const predictions = mlResponse.data;
-
-    // 2. Handle cold start — model still loading
-    if (!Array.isArray(predictions)) {
-      return res.json({
-        Error: "Model is warming up, please try again in 20 seconds",
-      });
-    }
-
-    const predictions = mlResponse.data;
-
+    
     if (!Array.isArray(predictions)) {
       return res.json({
         Error: "Model is warming up, please try again in 20 seconds",
