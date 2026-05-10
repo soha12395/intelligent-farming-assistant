@@ -1,68 +1,70 @@
 const label_map = {
   // Tomato
-  'Tomato with Target Spot': 'Tomato___Target_Spot',
-  'Tomato with Tomato Yellow Leaf Curl Virus': 'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
-  'Tomato with Tomato Mosaic Virus': 'Tomato___Tomato_mosaic_virus',
-  'Tomato with Bacterial Spot': 'Tomato___Bacterial_spot',
-  'Tomato with Early Blight': 'Tomato___Early_blight',
-  'Tomato with Late Blight': 'Tomato___Late_blight',
-  'Tomato with Leaf Mold': 'Tomato___Leaf_Mold',
-  'Tomato with Septoria Leaf Spot': 'Tomato___Septoria_leaf_spot',
-  'Tomato with Spider Mites': 'Tomato___Spider_mites Two-spotted_spider_mite',
-  'Tomato healthy': 'Tomato___healthy',
+  "Tomato with Target Spot": "Tomato___Target_Spot",
+  "Tomato with Tomato Yellow Leaf Curl Virus":
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "Tomato with Tomato Mosaic Virus": "Tomato___Tomato_mosaic_virus",
+  "Tomato with Bacterial Spot": "Tomato___Bacterial_spot",
+  "Tomato with Early Blight": "Tomato___Early_blight",
+  "Tomato with Late Blight": "Tomato___Late_blight",
+  "Tomato with Leaf Mold": "Tomato___Leaf_Mold",
+  "Tomato with Septoria Leaf Spot": "Tomato___Septoria_leaf_spot",
+  "Tomato with Spider Mites": "Tomato___Spider_mites Two-spotted_spider_mite",
+  "Tomato healthy": "Tomato___healthy",
   // Potato
-  'Potato with Early Blight': 'Potato___Early_blight',
-  'Potato with Late Blight': 'Potato___Late_blight',
-  'Potato healthy': 'Potato___healthy',
+  "Potato with Early Blight": "Potato___Early_blight",
+  "Potato with Late Blight": "Potato___Late_blight",
+  "Potato healthy": "Potato___healthy",
   // Pepper
-  'Pepper, bell with Bacterial Spot': 'Pepper,_bell___Bacterial_spot',
-  'Pepper, bell healthy': 'Pepper,_bell___healthy',
-  'Bell Pepper with Bacterial Spot': 'Pepper,_bell___Bacterial_spot',
-  'Healthy Bell Pepper Plant': 'Pepper,_bell___healthy',
+  "Pepper, bell with Bacterial Spot": "Pepper,_bell___Bacterial_spot",
+  "Pepper, bell healthy": "Pepper,_bell___healthy",
+  "Bell Pepper with Bacterial Spot": "Pepper,_bell___Bacterial_spot",
+  "Healthy Bell Pepper Plant": "Pepper,_bell___healthy",
   // Corn
-  'Corn (Maize) with Cercospora Leaf Spot': 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot',
-  'Corn (Maize) with Common Rust': 'Corn_(maize)___Common_rust_',
-  'Corn (Maize) with Northern Leaf Blight': 'Corn_(maize)___Northern_Leaf_Blight',
-  'Corn (Maize) healthy': 'Corn_(maize)___healthy',
+  "Corn (Maize) with Cercospora Leaf Spot":
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "Corn (Maize) with Common Rust": "Corn_(maize)___Common_rust_",
+  "Corn (Maize) with Northern Leaf Blight":
+    "Corn_(maize)___Northern_Leaf_Blight",
+  "Corn (Maize) healthy": "Corn_(maize)___healthy",
   // Grape
-  'Grape with Black Rot': 'Grape___Black_rot',
-  'Grape with Esca': 'Grape___Esca_(Black_Measles)',
-  'Grape with Esca (Black Measles)': 'Grape___Esca_(Black_Measles)',
-  'Grape with Leaf Blight': 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
-  'Grape with Leaf Blight (Isariopsis Leaf Spot)': 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
-  'Grape healthy': 'Grape___healthy',
+  "Grape with Black Rot": "Grape___Black_rot",
+  "Grape with Esca": "Grape___Esca_(Black_Measles)",
+  "Grape with Esca (Black Measles)": "Grape___Esca_(Black_Measles)",
+  "Grape with Leaf Blight": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+  "Grape with Leaf Blight (Isariopsis Leaf Spot)":
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+  "Grape healthy": "Grape___healthy",
   // Apple
-  'Apple with Apple Scab': 'Apple___Apple_scab',
-  'Apple with Black Rot': 'Apple___Black_rot',
-  'Apple with Cedar Apple Rust': 'Apple___Cedar_apple_rust',
-  'Apple healthy': 'Apple___healthy',
+  "Apple with Apple Scab": "Apple___Apple_scab",
+  "Apple with Black Rot": "Apple___Black_rot",
+  "Apple with Cedar Apple Rust": "Apple___Cedar_apple_rust",
+  "Apple healthy": "Apple___healthy",
   // Cherry
-  'Cherry with Powdery Mildew': 'Cherry_(including_sour)___Powdery_mildew',
-  'Cherry (including sour) with Powdery Mildew': 'Cherry_(including_sour)___Powdery_mildew',
-  'Cherry healthy': 'Cherry_(including_sour)___healthy',
+  "Cherry with Powdery Mildew": "Cherry_(including_sour)___Powdery_mildew",
+  "Cherry (including sour) with Powdery Mildew":
+    "Cherry_(including_sour)___Powdery_mildew",
+  "Cherry healthy": "Cherry_(including_sour)___healthy",
   // Peach
-  'Peach with Bacterial Spot': 'Peach___Bacterial_spot',
-  'Peach healthy': 'Peach___healthy',
+  "Peach with Bacterial Spot": "Peach___Bacterial_spot",
+  "Peach healthy": "Peach___healthy",
   // Strawberry
-  'Strawberry with Leaf Scorch': 'Strawberry___Leaf_scorch',
-  'Strawberry healthy': 'Strawberry___healthy',
+  "Strawberry with Leaf Scorch": "Strawberry___Leaf_scorch",
+  "Strawberry healthy": "Strawberry___healthy",
   // Raspberry
-  'Raspberry healthy': 'Raspberry___healthy',
+  "Raspberry healthy": "Raspberry___healthy",
   // Healthy variants
-  'Healthy Potato Plant': 'Potato___healthy',
-  'Healthy Tomato Plant': 'Tomato___healthy',
-  'Healthy Corn Plant': 'Corn_(maize)___healthy',
-  'Healthy Grape Plant': 'Grape___healthy',
-  'Healthy Apple Plant': 'Apple___healthy',
-  'Healthy Cherry Plant': 'Cherry_(including_sour)___healthy',
-  'Healthy Peach Plant': 'Peach___healthy',
-  'Healthy Strawberry Plant': 'Strawberry___healthy',
-  'Healthy Raspberry Plant': 'Raspberry___healthy',
-  'Healthy Pepper Plant': 'Pepper,_bell___healthy',
+  "Healthy Potato Plant": "Potato___healthy",
+  "Healthy Tomato Plant": "Tomato___healthy",
+  "Healthy Corn Plant": "Corn_(maize)___healthy",
+  "Healthy Grape Plant": "Grape___healthy",
+  "Healthy Apple Plant": "Apple___healthy",
+  "Healthy Cherry Plant": "Cherry_(including_sour)___healthy",
+  "Healthy Peach Plant": "Peach___healthy",
+  "Healthy Strawberry Plant": "Strawberry___healthy",
+  "Healthy Raspberry Plant": "Raspberry___healthy",
+  "Healthy Pepper Plant": "Pepper,_bell___healthy",
 };
-
-
-
 
 const multer = require("multer");
 const path = require("path");
@@ -91,33 +93,78 @@ const detectDisease = async (req, res) => {
     const imageBuffer = fs.readFileSync(imagePath);
 
     const mlResponse = await axios.post(
-      'https://router.huggingface.co/hf-inference/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification',
+      "https://router.huggingface.co/hf-inference/models/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification",
       imageBuffer,
       {
         headers: {
-          'Authorization': `Bearer ${process.env.HF_API_KEY}`,
-          'Content-Type': 'application/octet-stream',
-        }
-      }
+          Authorization: `Bearer ${process.env.HF_API_KEY}`,
+          "Content-Type": "application/octet-stream",
+        },
+      },
     );
 
     const predictions = mlResponse.data;
 
     // 2. Handle cold start — model still loading
     if (!Array.isArray(predictions)) {
-      return res.json({ Error: 'Model is warming up, please try again in 20 seconds' });
+      return res.json({
+        Error: "Model is warming up, please try again in 20 seconds",
+      });
     }
 
-    const topPrediction   = predictions[0];
-    const disease_key     = label_map[topPrediction.label] || topPrediction.label;
-    console.log('disease_key from HF:', disease_key);
+    const predictions = mlResponse.data;
 
-    const disease_name    = disease_key.replace('___', ' - ').replace(/_/g, ' ');
+    if (!Array.isArray(predictions)) {
+      return res.json({
+        Error: "Model is warming up, please try again in 20 seconds",
+      });
+    }
+
+    // ── Plant filtering ───────────────────────────────────────
+    const plant = req.body.plant;
+
+    const plantNormalizer = {
+      "Pepper, bell": "Pepper,_bell",
+      "Corn (Maize)": "Corn_(maize)",
+      Cherry: "Cherry_(including_sour)",
+    };
+
+    const normalizedPlant = plantNormalizer[plant] || plant;
+
+    const filtered = predictions.filter((p) => {
+      const mappedKey = label_map[p.label] || p.label;
+      return mappedKey.toLowerCase().startsWith(normalizedPlant.toLowerCase());
+    });
+
+    const topPrediction = filtered.length > 0 ? filtered[0] : null;
+
+    if (!topPrediction) {
+      return res.json({
+        Status: "Success",
+        result: {
+          disease_name: `No disease detected for ${plant}`,
+          confidence_score: 0,
+          confidence: "Low",
+          treatment:
+            "Try uploading a clearer close-up photo of the affected leaf.",
+        },
+      });
+    }
+    // ── End filtering ─────────────────────────────────────────
+
+    // Remove the old topPrediction line below and keep everything else
+    // const topPrediction = predictions[0];  ← DELETE THIS LINE
+    const disease_key = label_map[topPrediction.label] || topPrediction.label;
+
+    const topPrediction = predictions[0];
+    const disease_key = label_map[topPrediction.label] || topPrediction.label;
+    console.log("disease_key from HF:", disease_key);
+
+    const disease_name = disease_key.replace("___", " - ").replace(/_/g, " ");
     const confidence_score = Math.round(topPrediction.score * 100);
 
-    const confidence = confidence_score > 70 ? 'High'
-                     : confidence_score > 40 ? 'Medium'
-                     : 'Low';
+    const confidence =
+      confidence_score > 70 ? "High" : confidence_score > 40 ? "Medium" : "Low";
 
     // 3. Look up disease in database using disease_key
     Disease.findByKey(disease_key, (err, data) => {
@@ -129,7 +176,8 @@ const detectDisease = async (req, res) => {
             disease_name,
             confidence_score,
             confidence,
-            treatment: 'Consult a local agricultural expert for treatment advice.',
+            treatment:
+              "Consult a local agricultural expert for treatment advice.",
           },
         });
       }
@@ -163,7 +211,6 @@ const detectDisease = async (req, res) => {
         });
       });
     });
-
   } catch (error) {
     console.error("Disease detection error:", error.message);
     return res.json({ Error: "Error running AI model: " + error.message });
@@ -172,20 +219,20 @@ const detectDisease = async (req, res) => {
 
 // Helper — build clean result object
 const buildResult = (disease, confidence_score, confidence) => ({
-  plant_name:    disease.plant_name,
-  disease_name:  disease.disease_name,
-  is_healthy:    disease.is_healthy === 1,
+  plant_name: disease.plant_name,
+  disease_name: disease.disease_name,
+  is_healthy: disease.is_healthy === 1,
   confidence,
   confidence_score,
-  description:   disease.description,
-  symptoms:      disease.symptoms,
-  cause:         disease.cause,
-  treatment:     disease.treatment,
+  description: disease.description,
+  symptoms: disease.symptoms,
+  cause: disease.cause,
+  treatment: disease.treatment,
   chemical_name: disease.chemical_name,
   chemical_type: disease.chemical_type,
-  dosage:        disease.dosage,
-  prevention:    disease.prevention,
-  urgency:       disease.urgency,
+  dosage: disease.dosage,
+  prevention: disease.prevention,
+  urgency: disease.urgency,
 });
 
 const getDetections = (req, res) => {
