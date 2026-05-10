@@ -61,7 +61,7 @@ function Disease() {
       <Navbar />
       <div className="disease-content">
         <div className="disease-box">
-          <h2>🔬 Disease Detection</h2>
+          <h2>Disease Detection</h2>
           {error && <p className="error">{error}</p>}
           <form onSubmit={handleSubmit}>
             <select onChange={(e) => setPlant(e.target.value)} required>

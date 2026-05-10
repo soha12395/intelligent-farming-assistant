@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h4>🌱 Intelligent Farming Assistant</h4>
+          <h4> Intelligent Farming Assistant</h4>
           <p>AI-powered tools to help Lebanese farmers make better agricultural decisions.</p>
         </div>
         <div className="footer-section">
@@ -17,9 +17,9 @@ function Footer() {
         </div>
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>📧 soha.halawi@liu.edu.lb</p>
-          <p>📧 adib.hasbany@liu.edu.lb</p>
-          <p>🏫 Lebanese International University</p>
+          <p> soha.halawi@liu.edu.lb</p>
+          <p> adib.hasbany@liu.edu.lb</p>
+          <p> Lebanese International University</p>
         </div>
       </div>
       <div className="footer-bottom">

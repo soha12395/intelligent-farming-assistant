@@ -108,7 +108,7 @@ function AddFarm() {
           <button type="submit">{isEdit ? "Update Farm" : "Save Farm"}</button>
           {isEdit && (
             <button type="button" onClick={handleDelete} className="delete-btn">
-              🗑 Delete Farm Profile
+               Delete Farm Profile
             </button>
           )}
         </form>
