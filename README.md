@@ -3,85 +3,84 @@
 A web-based AI-powered platform designed to help Lebanese farmers make better agricultural decisions.
 
 # Project Overview:
-
 IFA addresses three core problems faced by Lebanese farmers:
 
 Difficulty identifying plant diseases without hiring an expert
 Lack of guidance on which crops suit their land and season
 Improper use of fertilizers and pesticides
 
-# ✨ Features
+# Features
 
 Disease Detection — Upload a plant photo and get instant AI-powered disease identification with treatment and chemical advice
 Crop Recommendation — Enter your farm details and get crop suggestions matched to your region, soil, season, and water availability
 Farm Profile Management — Save and manage your farm details for personalized recommendations
 Detection & Recommendation History — View all past scans and recommendations
 
-# 📸 Screenshots
+# Screenshots
 ## 1. Home Page
-
 <img width="1347" height="633" alt="Screenshot (104)" src="https://github.com/user-attachments/assets/784aced2-69a6-4855-be08-247f3db92694" />
 
+## 2. Login & Signup Pages
+<img width="1283" height="610" alt="Screenshot (105)" src="https://github.com/user-attachments/assets/14340d13-79c6-4c95-90ec-54457fee9ab3" />
+<img width="1298" height="580" alt="Screenshot (106)" src="https://github.com/user-attachments/assets/4904672a-82a3-4c1e-9af9-7ec0afd214c1" />
 
+## 3.Dashboard
+<img width="1291" height="603" alt="Screenshot (107)" src="https://github.com/user-attachments/assets/9d3dec16-02cd-4a68-abc1-16a9e4387e71" />
 
-## 2. Browse Pets Page (with Filters)
-  ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/fcc522990f4488934a62c8a705bf07176a61b816/BrowsePets%20page.png)
+## 4.Farm Profile
+<img width="1286" height="607" alt="Screenshot (108)" src="https://github.com/user-attachments/assets/0725d4c8-1cce-481b-a6c2-3f6cd4474eef" />
 
-## 3. Pet Details Page
-   ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/af95ab72b6d84c749f1e37c5ba453ea654a966df/PetDetail%20page.png)
+## 5.Crop Recommendation Page
 
-## 4. Login & Signup Pages
- ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/d96a77f0458ed990ad5320d1143c736064947b34/Login%20page.png)
-    
-![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/c2a4e1a906aa52ad865b699ae54509eae5d00034/SignUp%20page.png)
+<img width="1338" height="595" alt="Screenshot (110)" src="https://github.com/user-attachments/assets/e8c087be-b947-4b4b-9fa8-36ae07bf9402" />
 
-## 5. Adoption Form (Protected)
+## 6.Disease Detection Page
 
-![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/3a7fc35f5136574162c986dc5dbc036caec88969/AdoptionApplication%20page.png)
+<img width="1330" height="618" alt="Screenshot (109)" src="https://github.com/user-attachments/assets/d8eb8dcd-ad55-4c26-b238-edc13ea3abcb" />
 
-## 6. About Us Page
-
-![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/30f870a14414aaf1710fb80448ac6dddf26ea577/About1%20page.png)
-    
- ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/11d407620db152f84a89083311fbf8a91af98e54/About2%20page.png)
+## 7.Crop Recommendation History
  
-## 7.Contact Page
- 
- ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/c1908ccf4ee9ccb53d5b5ffcbb2f08445318b8c1/Contact%20page.png)
+ <img width="1317" height="637" alt="Screenshot (111)" src="https://github.com/user-attachments/assets/7326a164-b8cc-409f-ab50-d113d7348600" />
 
-## 8.Footer
- 
- ![image alt](https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder/blob/c6366a14377992feccb05e1522a3fcd951c72530/Footer.png)
+## 8.Disease Detection history
+<img width="1311" height="626" alt="Screenshot (112)" src="https://github.com/user-attachments/assets/37e587ec-fa4d-4acf-ac73-bdfe74f37f86" />
 
 
-# 🛠️ Technologies Used
->React: The core JavaScript library used for building the user interface.
+## Tech Stack
 
->React Router (react-router-dom): Used for client-side routing and navigation.
+- **Frontend:** React.js
+- **Backend:** Node.js + Express
+- **Database:** MySQL hosted on Railway
+- **AI Model:** Hugging Face — MobileNetV2 trained on PlantVillage dataset
+- **Authentication:** JWT (JSON Web Tokens) + bcrypt
+- **Image Upload:** Multer
+- **Hosting:** Render (backend) + Vercel (frontend)
+- **website link:** https://intelligent-farming-assistant.vercel.app/
 
->React Hooks: (useState, useEffect) for state management and side effects.
+## AI Model
+Disease detection uses the `linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification` 
+model from Hugging Face, trained on the PlantVillage dataset covering 38 disease classes 
+across 14 plants including Tomato, Potato, Apple, Grape, Corn, Pepper, Cherry, and Peach.
 
->Lucide React: A library providing lightweight SVG icons.
+## Crop Matching
+Crop recommendations use a rule-based matching algorithm that scores each of 22 Lebanese 
+crops against 5 criteria: region, soil type, season, water availability, and farm size. 
+Crops scoring 40% or higher are returned sorted by best match.
 
->Custom CSS: All styling is handled with custom CSS files using Flexbox and Grid.
+## Data Sources
+- Wikipedia — Agriculture in Lebanon
+- IDAL Agriculture Sector in Lebanon Factbook 2020
+- FAO Lebanon National Agriculture Strategy 2020–2025
+- University agricultural extension publications (WVU, NC State, Colorado State, Penn State)
 
->Browser Storage: localStorage and sessionStorage to simulate auth and session.
+## Disclaimer
+Disease treatment information is intended as general guidance only. Farmers should consult 
+a certified agronomist before applying any chemicals.
 
-# 🚀 Deployment
-This application is deployed live on  Netlify.
-
-Live Link: [(https://enchanting-kheer-07575f.netlify.app/)]
-Deployment
-The website is deployed using GitHub Pages and can be accessed at[(https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder.git)
-]
-# 🏁 Getting Started
-To run the project locally:
-
-1. Clone this repository: https://github.com/elghazzirania-cloud/pet-adoption-frontend-or-csci426-pawfinder.git
-2. Navigate to the project directory: cd petproject
-3. Install dependencies: npm install
-4. Start the development server: npm start
-5. Open your browser and visit: https://enchanting-kheer-07575f.netlify.app/
+## Authors
+Soha Halawi & Adib Hasbany
+Lebanese International University
+CSCI490 Information Systems Development — Spring 2025–2026
 
 
 
