@@ -53,7 +53,7 @@ function Navbar() {
           Recommendations
         </a>
         <a href="/crop/history" onClick={() => setOpen(false)}>
-          Crop History
+          Recommendation History
         </a>
         <a href="/disease" onClick={() => setOpen(false)}>
           Disease Detection

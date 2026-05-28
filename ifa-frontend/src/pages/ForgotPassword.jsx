@@ -24,7 +24,7 @@ function ForgotPassword() {
   return (
     <div className="verify-container">
       <div className="verify-box">
-        <h2>🔑 Forgot Password</h2>
+        <h2> Forgot Password</h2>
         <p>Enter your email and we will send you a reset code</p>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>

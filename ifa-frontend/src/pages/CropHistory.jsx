@@ -19,7 +19,7 @@ function CropHistory() {
     <div className="history-container">
       <Navbar />
       <div className="history-content">
-        <h2>🌾 Crop Recommendation History</h2>
+        <h2> Crop Recommendation History</h2>
         {error && <p className="error">{error}</p>}
         {history.length === 0 ? (
           <div className="empty-card">
@@ -30,12 +30,12 @@ function CropHistory() {
             <div key={index} className="history-card">
               <div className="history-header">
                 <h4>{item.crop_name}</h4>
-                <span className="season-tag">🗓 {item.season}</span>
+                <span className="season-tag"> {item.season}</span>
               </div>
               <p>{item.description}</p>
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
-                <span className="crop-tag">🪨 {item.suitable_soil}</span>
-                <span className="crop-tag">💧 {item.suitable_water}</span>
+                <span className="crop-tag">{item.suitable_soil}</span>
+                <span className="crop-tag"> {item.suitable_water}</span>
               </div>
               <p className="history-date">Recommended: {new Date(item.recommended_at).toLocaleDateString()}</p>
             </div>

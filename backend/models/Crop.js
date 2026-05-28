@@ -1,16 +1,16 @@
 const db = require('../config/db');
 
 const Crop = {
-  getRecommended: (region, soil_type, season, water, cb) => {
-    db.query(`
-      SELECT * FROM crop 
-      WHERE suitable_region LIKE ? 
-      AND suitable_soil LIKE ? 
-      AND suitable_season LIKE ? 
-      AND suitable_water LIKE ?
-    `, [`%${region}%`, `%${soil_type}%`, `%${season}%`, `%${water}%`], cb);
-  },
-
+  getRecommended: (region, soil_type, season, water, farm_size, cb) => {
+  db.query(`
+    SELECT * FROM crop 
+    WHERE suitable_region LIKE ? 
+    AND suitable_soil LIKE ? 
+    AND suitable_season LIKE ? 
+    AND suitable_water LIKE ?
+    AND suitable_size LIKE ?
+  `, [`%${region}%`, `%${soil_type}%`, `%${season}%`, `%${water}%`, `%${farm_size}%`], cb);
+},
   saveRecommendation: (data, cb) => {
     db.query('INSERT INTO recommended_crop SET ?', data, cb);
   },
