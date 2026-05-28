@@ -29,7 +29,7 @@ function Navbar() {
           <a href="/dashboard">Dashboard</a>
           <a href="/farm/add">Farm Profile</a>
           <a href="/recommendation">Recommendations</a>
-          <a href="/crop/history">Crop History</a>
+          <a href="/crop/history">Recommendation History</a>
           <a href="/disease">Disease Detection</a>
           <a href="/disease/history">Disease History</a>
         </div>
