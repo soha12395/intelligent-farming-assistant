@@ -113,7 +113,7 @@ function AddFarm() {
           {isEdit && (
             <button type="button" onClick={handleDelete} className="delete-btn">
               Delete Farm Profile
-            </button>
+            </button> 
           )}
         </form>
         <a href="/dashboard" className="back-link">
