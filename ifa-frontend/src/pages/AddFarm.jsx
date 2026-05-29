@@ -85,14 +85,18 @@ function AddFarm() {
             <option value="Clay">Clay</option>
             <option value="Sandy">Sandy</option>
           </select>
-          <input
-            type="text"
+          <select
             name="farm_size"
-            placeholder="Farm Size (e.g. 5 acres)"
             value={formData.farm_size}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Select Farm Size</option>
+            <option value="Small">Small (less than 5 dunums)</option>
+            <option value="Medium">Medium (5 to 20 dunums)</option>
+            <option value="Large">Large (20 to 50 dunums)</option>
+            <option value="Very Large">Very Large (more than 50 dunums)</option>
+          </select>
           <select
             name="water_availability"
             value={formData.water_availability}
@@ -100,15 +104,15 @@ function AddFarm() {
             required
           >
             <option value="">Select Water Availability</option>
-            <option value="Low">Low</option>
-            <option value="Moderate">Moderate</option>
-            <option value="High">High</option>
-            <option value="Very High">Very High</option>
+            <option value="Low">Low (less than 500 L/day)</option>
+            <option value="Moderate">Moderate (500 to 2,000 L/day)</option>
+            <option value="High">High (2,000 to 5,000 L/day)</option>
+            <option value="Very High">Very High (more than 5,000 L/day)</option>
           </select>
           <button type="submit">{isEdit ? "Update Farm" : "Save Farm"}</button>
           {isEdit && (
             <button type="button" onClick={handleDelete} className="delete-btn">
-               Delete Farm Profile
+              Delete Farm Profile
             </button>
           )}
         </form>

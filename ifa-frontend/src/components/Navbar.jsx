@@ -38,7 +38,7 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Side drawer for mobile */}
+      
       <div className={`sidebar ${open ? "open" : ""}`}>
         <button className="close-btn" onClick={() => setOpen(false)}>
           ✕
