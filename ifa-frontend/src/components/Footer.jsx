@@ -17,8 +17,8 @@ function Footer() {
         </div>
         <div className="footer-section">
           <h4>Contact</h4>
-          <p> soha.halawi@liu.edu.lb</p>
-          <p> adib.hasbany@liu.edu.lb</p>
+          <p> 42230586@students.liu.edu.lb</p>
+          <p> 42330576@students.liu.edu.lb</p>
           <p> Lebanese International University</p>
         </div>
       </div>

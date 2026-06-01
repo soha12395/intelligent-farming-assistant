@@ -111,7 +111,6 @@ const detectDisease = async (req, res) => {
       });
     }
 
-    // ── Plant filtering ───────────────────────────────────────
     const plant = req.body.plant;
 
     const plantNormalizer = {
@@ -141,10 +140,7 @@ const detectDisease = async (req, res) => {
         },
       });
     }
-    // ── End filtering ─────────────────────────────────────────
-
-    // Remove the old topPrediction line below and keep everything else
-    // const topPrediction = predictions[0];  ← DELETE THIS LINE
+   
     const disease_key = label_map[topPrediction.label] || topPrediction.label;
 
     const disease_name = disease_key.replace("___", " - ").replace(/_/g, " ");
@@ -153,10 +149,8 @@ const detectDisease = async (req, res) => {
     const confidence =
       confidence_score > 70 ? "High" : confidence_score > 40 ? "Medium" : "Low";
 
-    // 3. Look up disease in database using disease_key
     Disease.findByKey(disease_key, (err, data) => {
       if (err || !data || data.length === 0) {
-        // Disease not found in DB — return basic result
         return res.json({
           Status: "Success",
           result: {
@@ -171,17 +165,14 @@ const detectDisease = async (req, res) => {
 
       const disease = data[0];
 
-      // 4. Get farmer's farm profile
       FarmProfile.findByFarmerId(req.farmer_id, (err, farmData) => {
         if (err || !farmData || farmData.length === 0) {
-          // No farm profile — return disease info without saving
           return res.json({
             Status: "Success",
             result: buildResult(disease, confidence_score, confidence),
           });
         }
 
-        // 5. Save detection to database
         const detection = {
           profile_id: farmData[0].profile_id,
           disease_id: disease.disease_id,
@@ -204,7 +195,6 @@ const detectDisease = async (req, res) => {
   }
 };
 
-// Helper — build clean result object
 const buildResult = (disease, confidence_score, confidence) => ({
   plant_name: disease.plant_name,
   disease_name: disease.disease_name,
