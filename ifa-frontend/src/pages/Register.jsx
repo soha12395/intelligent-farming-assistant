@@ -15,20 +15,20 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await api.post("/auth/register", formData);
-      if (res.data.Status === "Success") {
-        alert("Registration successful! Please login.");
-        window.location.href = "/login";
-      } else {
-        setError(res.data.Error);
-      }
-    } catch (err) {
-      setError("Something went wrong");
+ const handleRegister = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await api.post("/auth/register", formData);
+    if (res.data.Status === "Verify") {
+      localStorage.setItem('pendingEmail', res.data.email);
+      window.location.href = "/verify";
+    } else {
+      setError(res.data.Error);
     }
-  };
+  } catch (err) {
+    setError("Something went wrong");
+  }
+};
 
   return (
     <div className="register-container">
