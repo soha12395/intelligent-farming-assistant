@@ -27,11 +27,7 @@ const register = (req, res) => {
 
       User.create(userData, (err, result) => {
         if (err) return res.json({ Error: "Error creating account" });
-
-        User.create(userData, (err, result) => {
-          if (err) return res.json({ Error: "Error creating account" });
-          return res.json({ Status: "Success" });
-        });
+        return res.json({ Status: "Success" });
       });
     });
   });
