@@ -100,6 +100,15 @@ function Disease() {
               <span>Disease:</span> {result.disease_name}
             </div>
             <div className="result-row">
+              <span>Confidence:</span> {result.confidence_score}%
+            </div>
+            <div className="result-row">
+              <span>Confidence Level:</span>{" "}
+              <span className={getUrgencyClass(result.confidence)}>
+                {result.confidence}
+              </span>
+            </div>
+            <div className="result-row">
               <span>Description:</span> {result.description}
             </div>
             <div className="result-row">
