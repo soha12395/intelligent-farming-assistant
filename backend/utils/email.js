@@ -1,8 +1,10 @@
-const nodemailer = require('nodemailer');
-require('dotenv').config();
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
@@ -13,7 +15,7 @@ const sendVerificationCode = (email, code) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: 'IFA - Email Verification Code',
+    subject: "IFA - Email Verification Code",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto;">
         <h2 style="color: #2e7d32;">🌱 Intelligent Farming Assistant</h2>
@@ -24,17 +26,9 @@ const sendVerificationCode = (email, code) => {
         <p>This code expires in 10 minutes.</p>
         <p>If you did not register, please ignore this email.</p>
       </div>
-    `
+    `,
   };
-const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
+
   return transporter.sendMail(mailOptions);
 };
 

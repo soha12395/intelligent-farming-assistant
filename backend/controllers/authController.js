@@ -22,12 +22,15 @@ const register = (req, res) => {
         phone,
         password_hash: hash,
         verification_code: code,
-        is_verified: 1,
+        is_verified: 0
       };
 
       User.create(userData, (err, result) => {
-        if (err) return res.json({ Error: "Error creating account" });
-        return res.json({ Status: "Success" });
+        if (err) return res.json({ Error: 'Error creating account' });
+
+        sendVerificationCode(email, code)
+          .then(() => res.json({ Status: 'Verify', email }))
+          .catch(() => res.json({ Error: 'Error sending verification email' }));
       });
     });
   });
